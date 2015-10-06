@@ -1,4 +1,4 @@
-# PostCSS Maze [![Build Status][ci-img]][ci]
+# PostCSS Maze 
 
 [PostCSS] plugin Mobile first responsive framework.
 
