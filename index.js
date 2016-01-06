@@ -1,69 +1,110 @@
-// Add to values with string split
-// Add media queries
+// max width - exact value
+
 // Write test
 // Readme file
-
+// Content and style seperation blog
+// Demo folder
+// Tidy up
 
 var postcss = require('postcss');
+var _ = require('underscore');
 
-module.exports = postcss.plugin('postcss-maze', function (opts) {
-    opts = opts || {
-      mobile: 480,
-      tablet: 768,
-      desktop: 960
-    };
+// Default Media Config
+var mediaConfig = {
+  'mobile': 280,
+  'landscape': 480,
+  'tablet': 768,
+  'desktop': 1020,
+  'wide': 1280
+}
 
-    var margin = 1;
-    var marginOveride = /\s*!marginOveride\s*$/;
+// Default Settings Config
+var settingsConfig = {
+  'margin': 1
+}
 
+module.exports = postcss.plugin('postcss-maze', function (options) {
 
-    // Work with options here
+  options = options || {};
+  // Extend the default mediaConfig option with any custom devices set in the plugin's options (Gulp)
+  mediaConfig = _.extend(mediaConfig, options.media);
+  msettingsConfig = _.extend(settingsConfig, options.settings);
 
-    // Functions
-    var columnWidth = function (coloumnSpan, totalColoumns) {
-      var unitWidth = totalColoumns / coloumnSpan;
-  		var width = (100 - ( (unitWidth - 1) * margin) ) / unitWidth;
-  		return width;
-  	};
+  // Width Function
+  var columnWidth = function (coloumnSpan, totalColoumns) {
+    var unitWidth = totalColoumns / coloumnSpan;
+    var width = (100 - (unitWidth * settingsConfig.margin)) / unitWidth;
+    return width  + '%';
+  };
 
+  // Margin Function - Widths function????
+  var maxWidth = mediaConfig.wide + ((mediaConfig.wide / 100)  * settingsConfig.margin);
+  var minWidth = mediaConfig.mobile - 20; /* Set min width with scroll bar */
+  // ????????
+  return function (css) {
 
-    // Transform CSS AST here
-    return function (css, result) {
+    css.walkRules(function (rule) {
 
+      rule.walkDecls(function (decl, i) {
 
-      css.eachDecl(function (decl) {
+        var value = decl.value;
+        var selectorName = decl.parent.selector;
+        var prop = decl.prop;
 
-        if(decl.prop === 'col-width') {
+        if(prop === 'grid-container') {
+          var valueCheck = /^\s*true\s*$/;
 
-          // RegEx
-          var value = decl.value; // ( 2 of 6)
-          var span = value.split;
-          var coloumns = value.split;
-
-          decl.parent.append({ prop: 'width', value: columnWidth(span, coloumns) }); // add two inputs get property values and split
-          decl.parent.append({ prop: 'float', value: 'left' });
-          decl.parent.append({ prop: 'background', value: 'orange' });
-          decl.parent.append({ prop: 'padding', value: '10px' });
-
-          // Margin
-          if (!(decl.value.match(marginOveride))) {
-						  decl.parent.append({ prop: 'margin-right', value: margin + '%' });
-              // Add coloumns child margin 0 - append to css property
-					}
-
+          if (!(value.match(valueCheck))) {
+            throw decl.error('Syntax Error - grid-container = true', { plugin: 'postcss-maze' });
+          } else {
+            decl.parent.append({ prop: 'max-width', value: maxWidth +'px' });
+            decl.parent.append({ prop: 'min-width', value: minWidth +'px' });
+            decl.parent.append({ prop: 'margin', value: '0 auto' });
+            decl.parent.append({ prop: 'box-sizing', value: 'border-box' });
+            css.insertBefore(decl.parent ,(selectorName +'::after {content: "" ; display: table; clear: both}'));
+          }
           decl.remove();
         }
 
-        else {
-					throw decl.error('Invalid declaration', { plugin: 'postcss-maze' });
-				}
+        if(prop === 'col-span') {
+          var valueCheck = /^([a-z]+)(\([0-9]{1,2})(,[0-9]{1,2}\))$/;
 
-      });
+          if (!(value.match(valueCheck))) {
+            throw decl.error('Syntax Error - col-span should be entered as media(span,totalColumns)', { plugin: 'postcss-maze' });
+          } else {
 
+          // Variables
+          var split = value.split('('); // Split Media from values
+          var chosenMedia = split[0]; // Media (mobile, desktop etc)
+          var values = split[1]; // Grid values
+          var splitValues = values.slice(0, -1).split(','); // Remove trailing ) and split the two values (2,6)
+          var span = splitValues[0]; // Col Span
+          var coloumns = splitValues[1]; // Total coloumns
+          var mediaValue = mediaConfig[chosenMedia];
+          var marginValue = settingsConfig['margin'];
 
+          if(chosenMedia === 'mobile') {
 
-    };
+            decl.parent.append({ prop: 'float', value: 'left' });
+            decl.parent.append({ prop: 'box-sizing', value: 'border-box' });
+            decl.parent.append({ prop: 'margin-right', value: marginValue/2 +'%' });
+            decl.parent.append({ prop: 'margin-left', value: marginValue/2 +'%' });
+            decl.parent.append({ prop: 'width', value: columnWidth(span,coloumns) });
 
+          } else {
+            // add media query
+            css.insertBefore(decl.parent ,('@media only screen and (min-width:' + mediaValue + 'px) { '+ selectorName +'{width:' + columnWidth(span,coloumns) + '} }'));
+          }
 
+        }
+
+      decl.remove();
+    }
+
+  });
+
+});
+
+};
 
 });
