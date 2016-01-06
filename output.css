@@ -1,0 +1,197 @@
+/*
+  Theming styles
+  ----------------------------------- */
+
+h1,
+h2 {
+  color: #999;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 2.6em;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+section div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: orange;
+  padding: 15px 10px;
+}
+
+
+/*
+  Layout styles
+  ----------------------------------- */
+
+.row::after {
+  content: "" ;
+  display: table;
+  clear: both;
+}
+
+.row {
+  max-width: 1030.2px;
+  min-width: 260px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* EQUAL */
+
+.one-column {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+.four-columns {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+.three-columns {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+.six-columns {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+/* UN-EQUAL */
+
+.one-quater {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 49%;
+}
+
+.two-quaters {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+.one-third {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+.two-thirds {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+.one-sixth {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+.four-sixths {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+
+/* MULTI ROW */
+
+.multi-row {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+@media only screen and (min-width:768px) {
+
+  .four-columns {
+    width: 49%;
+  }
+
+  .three-columns {
+    width: 32.333333333333336%;
+  }
+
+  .six-columns {
+    width: 32.333333333333336%;
+  }
+
+  .one-quater {
+    width: 24%;
+  }
+
+  .two-quaters {
+    width: 49%;
+  }
+
+  .one-third {
+    width: 32.333333333333336%;
+  }
+
+  .two-thirds {
+    width: 65.66666666666667%;
+  }
+
+  .one-sixth {
+    width: 15.666666666666666%;
+  }
+
+  .four-sixths {
+    width: 65.66666666666667%;
+  }
+
+  .multi-row {
+    width: 49%;
+  }
+}
+
+@media only screen and (min-width:1020px) {
+
+  .four-columns {
+    width: 24%;
+  }
+
+  .six-columns {
+    width: 15.666666666666666%;
+  }
+
+  .multi-row {
+    width: 24%;
+  }
+}
