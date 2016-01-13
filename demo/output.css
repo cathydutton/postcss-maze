@@ -1,32 +1,4 @@
 /*
-  Theming styles
-  ----------------------------------- */
-
-h1,
-h2 {
-  color: #999;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  font-size: 2.6em;
-  text-transform: uppercase;
-}
-
-.wrapper {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  color: white;
-}
-
-section div {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background: orange;
-  padding: 15px 10px;
-}
-
-
-/*
   Layout styles
   ----------------------------------- */
 
@@ -127,7 +99,6 @@ section div {
   width: 99%;
 }
 
-
 /* MULTI ROW */
 
 .multi-row {
@@ -138,7 +109,7 @@ section div {
   width: 99%;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:480px) {
 
   .four-columns {
     width: 49%;
@@ -181,7 +152,7 @@ section div {
   }
 }
 
-@media only screen and (min-width:1020px) {
+@media only screen and (min-width:768px) {
 
   .four-columns {
     width: 24%;
@@ -194,4 +165,31 @@ section div {
   .multi-row {
     width: 24%;
   }
+}
+
+/*
+  Theming styles
+  ----------------------------------- */
+
+h1,
+h2 {
+  color: #999;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 2.6em;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+section div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: orange;
+  padding: 15px 10px;
 }

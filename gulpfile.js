@@ -12,44 +12,49 @@ gulp.task('lint', function () {
 
 // CSS TASK
 gulp.task('css', function () {
-  var concat = require('gulp-concat');
-  var postcss = require('gulp-postcss');
-  var mqpacker = require('css-mqpacker');
-  var postcssMaze = require('./index.js');
-  var autoprefixer = require('autoprefixer');
+    var concat = require('gulp-concat'),
+        postcss = require('gulp-postcss'),
+        mqpacker = require('css-mqpacker'),
+        postcssMaze = require('./index.js'),
+        autoprefixer = require('autoprefixer');
 
-  var processors = [
-    postcssMaze({
-      media: {
-        // 'mobile': 280,
-        // 'landscape': 480,
-        // 'tablet': 768,
-        // 'desktop': 1020,
-        'wide': 1020
-      },
-      settings: {
-        //'margin': 10
-      }
-    }),
-    mqpacker,
-    autoprefixer({
-			browsers: ['> 2%', 'IE >= 9', 'iOS >= 7'],
-			cascade: false,
-			map: true,
-			remove: true
-		})
-  ];
+    var processors = [
+        postcssMaze({
+            media: {
+                // mobile: 280,
+                // landscape: 480,
+                // tablet: 768,
+                // desktop: 1020,
+                wide: 1020
+            },
+            settings: {
+                // margin: 10
+            }
+        }),
+        mqpacker,
+        autoprefixer({
+            browsers: ['> 2%', 'IE >= 9', 'iOS >= 7'],
+            cascade:  false,
+            map:      true,
+            remove:   true
+        })
+    ];
 
-  return gulp.src('styles.css')
-    .pipe(postcss(processors))
-    .pipe(concat('output.css'))
-    .pipe(gulp.dest('.'));
+    return gulp.src([
+          'demo/layout.css',
+          'demo/theme.css'
+        ])
+        .pipe(postcss(processors))
+        .pipe(concat('demo/output.css'))
+        .pipe(gulp.dest('.'));
 });
 
 gulp.task('test', function () {
     var mocha = require('gulp-mocha');
-    return gulp.src('test/*.js', { read: false })
-        .pipe(mocha());
+    return gulp.src('test/*.js', {
+        read: false
+    })
+      .pipe(mocha());
 });
 
 gulp.task('default', ['lint', 'test']);

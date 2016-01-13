@@ -13,12 +13,24 @@ var test = function (input, output, opts, done) {
     });
 };
 
+
 describe('postcss-maze', function () {
 
-    /* Write tests here
+    /* Tests
 
     it('does something', function (done) {
         test('a{ }', 'a{ }', { }, done);
     });*/
+
+    it('adds row styling', function () {
+        test('a:hover, b {}', 'a:hover, b, a:focus {}');
+    });
+
+    it('adds column styling', function () {
+        test('a:hover, b:hover {}', 'a:hover, b:hover, a:focus, b:focus {}');
+    });
+
+    test('.element{grid-column: 1/12;}',
+    '.element{float: left;width: 6.42361%;margin-right: 2.08333%;}');
 
 });
