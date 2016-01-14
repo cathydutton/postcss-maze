@@ -1,10 +1,15 @@
 # PostCSS Maze
 
-A mobile first semantic grid system for [PostCSS]
+A fully flexible mobile first grid to suit any design pattern.
 
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/cathydutton/postcss-maze.svg
 [ci]:      https://travis-ci.org/cathydutton/postcss-maze
+
+
+Maze is a flexible and semantic mobile first responsive grid built with [PostCSS]. Maze is fully customisable with editable options for total grid columns, column span, gutter widths and break points. 
+
+Maze removes the reliance on last column margin overrides by instead applying the margin to both sides of the column and adjusting the wrapper with accordingly. 
 
 
 ## Installation
@@ -13,7 +18,71 @@ A mobile first semantic grid system for [PostCSS]
 npm install postcss-maze
 ```
 
-## Gulp set up
+## Creating a grid
+
+Firstly the wrapper is given a property of grid-container with a value of true.
+
+```css
+.wrapper {
+  grid-container: true;
+}
+```
+
+This calculates the wrapper width based on the values assigned to the largest and smallest media queries, and adds a clearfix.
+
+```css
+.wrapper {
+  max-width: 1030.2px;
+  min-width: 260px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.wrapper::after {
+  content: "" ;
+  display: table;
+  clear: both;
+}
+```
+Each column is then created as a ratio at a set media query.
+
+```css
+.four-columns {
+  col-span: mobile(1,1);
+  col-span: landscape(1,2);
+  col-span: tablet(1,4);
+}
+```
+
+```css
+.four-columns {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+}
+
+@media only screen and (min-width:480px) {
+
+  .four-columns {
+    width: 49%;
+  }
+
+}
+
+@media only screen and (min-width:768px) {
+
+  .four-columns {
+    width: 24%;
+  }
+
+}
+```
+
+The above element will display one per row at mobile, two per row at landscape and 4 per row at tablet.
+
+### Gulp set up
 
 ```js
 // CSS TASK
@@ -58,9 +127,6 @@ gulp.task('css', function () {
 
 ```
 
-See [PostCSS] docs for examples for your environment.
-
-
 ### Support
 If you have any questions get in touch:
 
@@ -70,115 +136,3 @@ If you have any questions get in touch:
 
 
 
-
-## Usage
-
-```js
-var fs = require('fs');
-var postcss = require('postcss');
-var grid = require('postcss-grid');
-
-var css = fs.readFileSync('input.css', 'utf8');
-
-var options = {
-  columns: 12, // the number of columns in the grid
-  maxWidth: 960, // the maximum width of the grid (in px)
-  gutter: 20, // the width of the gutter (in px)
-  legacy: false // fixes the double-margin bug in older browsers. Defaults to false
-};
-
-var output = postcss()
-  .use(grid(options))
-  .process(css)
-  .css;
-```
-
-### Columns
-
-Columns are created by using the `grid-column` declaration and passing a `/`-delimited value. This value contains the number of columns the element should span, separated by the total number of columns in the element's container.
-
-
-**Example**:
-
-```css
-.element {
-  grid-column: 1/12;
-}
-```
-
-Turns into:
-
-```css
-.element{
-  float: left;
-  width: 6.42361%;
-  margin-right: 2.08333%;
-}
-```
-
-You can also use it in conjunction with the `!last` declaration to make sure that the last element of the row doesn't allocate a gutter, pushing itself to the next row.
-
-**Example**:
-
-```css
-.element {
-  grid-column: 1/2 !last;
-}
-```
-
-Turns into:
-
-```css
-.element{
-  float: left;
-  width: 6.42361%;
-}
-```
-
-### Offsetting elements
-
-Elements can be offset to the left and the right by using `grid-pull` and `grid-push`.
-
-**Example**:
-
-```css
-.push {
-  grid-push: 1/12;
-}
-.pull {
-  grid-pull: 1/12;
-}
-```
-
-Turns into:
-
-```css
-.push {
-  margin-left: 8.50694%;
-}
-.pull {
-  margin-right: 8.50694%;
-}
-```
-
-### Width and gutter values
-
-The width and gutter values can be retrieved by calling `grid-width(...)` and `grid-gutter(...)` from a declaration.
-
-**Example**:
-
-```css
-.element {
-  width: grid-width(1/12);
-  margin-left: grid-gutter(12);
-}
-```
-
-Turns into:
-
-```css
-.element {
-  width: 6.42361%;
-  margin-left: 2.08333%;
-}
-```
