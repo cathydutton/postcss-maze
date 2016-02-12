@@ -57,6 +57,13 @@ gulp.task('test', function () {
       .pipe(mocha());
 });
 
+
+gulp.task('deploy', function() {
+  var ghPages = require('gulp-gh-pages');
+  return gulp.src('./demo/**/*')
+    .pipe(ghPages());
+});
+
 gulp.task('default', ['lint', 'test']);
 
 gulp.task('watch', function () {
