@@ -9,11 +9,11 @@ var postcss = require('postcss'),
 
 // Default Media Config
 var mediaConfig = {
-    mobile:    280,
-    landscape: 480,
-    tablet:    768,
-    desktop:   1020,
-    wide:      1280
+    mobile:    20,
+    phablet:   30,
+    tablet:    48,
+    desktop:   63.750,
+    wide:      80
 };
 
 // Default Settings Config
@@ -60,11 +60,11 @@ module.exports = postcss.plugin('postcss-maze', function (options) {
                     } else {
                         decl.parent.append({
                             prop:  'max-width',
-                            value: maxWidth + 'px'
+                            value: maxWidth + 'em'
                         });
                         decl.parent.append({
                             prop:  'min-width',
-                            value: minWidth + 'px'
+                            value: minWidth + 'em'
                         });
                         decl.parent.append({
                             prop:  'margin',
@@ -133,7 +133,7 @@ module.exports = postcss.plugin('postcss-maze', function (options) {
                             css.insertBefore(decl.parent,
                               '@media only screen and (min-width:' +
                               mediaValue +
-                              'px) { ' +
+                              'em) { ' +
                               selectorName +
                               '{width:' +
                               columnWidth(span, coloumns) +
