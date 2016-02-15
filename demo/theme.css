@@ -8,6 +8,7 @@ h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-size: 2.6em;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -23,4 +24,28 @@ section div {
   margin-bottom: 10px;
   background: orange;
   padding: 15px 10px;
+}
+
+@media screen and (min-width: 30em) {
+  section div {
+    background: blue;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  section div {
+    background: green;
+  }
+}
+
+@media screen and (min-width: 63.750em) {
+  section div {
+    background: red;
+  }
+}
+
+@media screen and (min-width: 80em) {
+  section div {
+    background: pink;
+  }
 }

@@ -15,29 +15,29 @@ gulp.task('css', function () {
     var concat = require('gulp-concat'),
         postcss = require('gulp-postcss'),
         mqpacker = require('css-mqpacker'),
-        postcssMaze = require('./index.js'),
-        autoprefixer = require('autoprefixer');
+        postcssMaze = require('./index.js');
+        //autoprefixer = require('autoprefixer');
 
     var processors = [
         postcssMaze({
             media: {
-                // mobile: 280,
-                // landscape: 480,
-                // tablet: 768,
-                // desktop: 1020,
-                wide: 1020
+              // mobile:    20+'em',
+              // phablet:   30+'em',
+              // tablet:    48+'em',
+              // desktop:   63.750+'em',
+              // wide:      80 +'em'
             },
             settings: {
                 // margin: 10
             }
         }),
         mqpacker,
-        autoprefixer({
-            browsers: ['> 2%', 'IE >= 9', 'iOS >= 7'],
-            cascade:  false,
-            map:      true,
-            remove:   true
-        })
+        // autoprefixer({
+        //     browsers: ['> 2%', 'IE >= 9', 'iOS >= 7'],
+        //     cascade:  false,
+        //     map:      true,
+        //     remove:   true
+        // })
     ];
 
     return gulp.src([
@@ -67,5 +67,5 @@ gulp.task('deploy', function() {
 gulp.task('default', ['lint', 'test']);
 
 gulp.task('watch', function () {
-    gulp.watch(files, ['css', 'lint', 'test']);
+    gulp.watch(files, ['css', 'lint']);
 });

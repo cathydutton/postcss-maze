@@ -9,11 +9,11 @@ var postcss = require('postcss'),
 
 // Default Media Config
 var mediaConfig = {
-    mobile:    20,
-    phablet:   30,
-    tablet:    48,
-    desktop:   63.750,
-    wide:      80
+    mobile:    20+'em',
+    phablet:   30+'em',
+    tablet:    48+'em',
+    desktop:   63.750+'em',
+    wide:      80+'em'
 };
 
 // Default Settings Config
@@ -60,11 +60,11 @@ module.exports = postcss.plugin('postcss-maze', function (options) {
                     } else {
                         decl.parent.append({
                             prop:  'max-width',
-                            value: maxWidth + 'em'
+                            value: maxWidth
                         });
                         decl.parent.append({
                             prop:  'min-width',
-                            value: minWidth + 'em'
+                            value: minWidth
                         });
                         decl.parent.append({
                             prop:  'margin',
@@ -128,12 +128,16 @@ module.exports = postcss.plugin('postcss-maze', function (options) {
                                 prop:  'width',
                                 value: columnWidth(span, coloumns)
                             });
+                            decl.parent.append({
+                                prop:  'transition',
+                                value: 'all 0.5s ease'
+                            });
                         } else {
                             // add media query
                             css.insertBefore(decl.parent,
                               '@media only screen and (min-width:' +
                               mediaValue +
-                              'em) { ' +
+                              ') { ' +
                               selectorName +
                               '{width:' +
                               columnWidth(span, coloumns) +
