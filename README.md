@@ -7,7 +7,7 @@ A fully flexible mobile first grid to suit any design pattern.
 [ci]:      https://travis-ci.org/cathydutton/postcss-maze
 
 
-Maze is a flexible and semantic mobile first responsive grid built with PostCSS. Maze is fully customisable and removes the reliance on .last-column classes by instead applying the margin to both sides of each element and adjusting the wrapper with accordingly. 
+Maze is a flexible and semantic mobile first responsive grid built with PostCSS. Maze is fully customisable and removes the reliance on .last-column classes by instead applying the margin to both sides of each element and adjusting the wrapper width accordingly. 
 
 
 ## Installation
