@@ -7,9 +7,7 @@ A fully flexible mobile first grid to suit any design pattern.
 [ci]:      https://travis-ci.org/cathydutton/postcss-maze
 
 
-Maze is a flexible and semantic mobile first responsive grid built with [PostCSS]. Maze is fully customisable with editable options for total grid columns, column span, gutter widths and break points.
-
-Maze removes the reliance on last column margin overrides by instead applying the margin to both sides of the column and adjusting the wrapper with accordingly.
+Maze is a flexible and semantic mobile first responsive grid built with PostCSS. Maze is fully customisable and removes the reliance on .last-column classes by instead applying the margin to both sides of each element and adjusting the wrapper with accordingly. 
 
 
 ## Installation
@@ -28,7 +26,7 @@ Firstly the wrapper is given a property of grid-container with a value of true.
 }
 ```
 
-This calculates the wrapper width based on the values assigned to the largest and smallest media queries, and adds a clearfix.
+This calculates the wrapper width based on the values assigned to the largest and smallest media queries, and adds a clearfix...
 
 ```css
 .wrapper {
@@ -44,12 +42,12 @@ This calculates the wrapper width based on the values assigned to the largest an
   clear: both;
 }
 ```
-Each column is then created as a ratio at a set media query.
+Each column is then created as a ratio at a set media query...
 
 ```css
 .four-columns {
   col-span: mobile(1,1);
-  col-span: landscape(1,2);
+  col-span: phablet(1,2);
   col-span: tablet(1,4);
 }
 ```
@@ -80,44 +78,65 @@ Each column is then created as a ratio at a set media query.
 }
 ```
 
-The above element will display one per row at mobile, two per row at landscape and 4 per row at tablet.
+The above element will display one per row at mobile, two per row at landscape and 4 per row at tablet. The Mobile declaration is the default value and therefore is not rendered inside a media query.
 
-### Gulp set up
+### Settings
+
+By default Maze works with 5 media queries and has a margin of 1%. These settings can be overridden with custom config...
+
+```js
+var processors = [
+postcssMaze({
+media: {
+ mobile:    20 +'em',
+ phablet:   30 +'em',
+ tablet:    48 +'em',
+ desktop:   63.750 +'em',
+ wide:      80 +'em'
+},
+settings: {
+ margin: 10
+}
+}),
+```
+
+An example using Gulp as a task runner...
 
 ```js
 // CSS TASK
 gulp.task('css', function () {
-    var concat = require('gulp-concat'),
-        postcss = require('gulp-postcss'),
-        mqpacker = require('css-mqpacker'),
-        postcssMaze = require('./index.js'),
-        autoprefixer = require('autoprefixer');
+  var concat = require('gulp-concat'),
+    postcss = require('gulp-postcss'),
+    mqpacker = require('css-mqpacker'),
+    postcssMaze = require('./index.js'),
+    autoprefixer = require('autoprefixer');
 
-    var processors = [
-        postcssMaze({
-            media: {
-                
-            },
-            settings: {
-                // margin: 10
-            }
-        }),
-        mqpacker,
-        autoprefixer({
-            browsers: ['> 2%', 'IE >= 9', 'iOS >= 7'],
-            cascade:  false,
-            map:      true,
-            remove:   true
-        })
-    ];
+  var processors = [
+    postcssMaze({
+      media: {
+        mobile:    20 +'em',
+        phablet:   30e +'em',
+        tablet:    48 +'em',
+        desktop:   63.750 +'em',
+        wide:      80 +'em'
+      },
+      settings: {
+        margin: 10
+      }
+    }),
+    mqpacker,
+      autoprefixer({
+        browsers: ['> 2%', 'IE >= 9', 'iOS >= 7'],
+        cascade:  false,
+        map:      true,
+        remove:   true
+    })
+  ];
 
-    return gulp.src([
-          'demo/layout.css',
-          'demo/theme.css'
-        ])
-        .pipe(postcss(processors))
-        .pipe(concat('demo/output.css'))
-        .pipe(gulp.dest('.'));
+  return gulp.src('dist/input.css')
+    .pipe(postcss(processors))
+    .pipe(concat('dist/output.css'))
+    .pipe(gulp.dest('.'));
 });
 
 
