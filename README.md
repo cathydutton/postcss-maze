@@ -7,7 +7,7 @@ A fully flexible mobile first grid to suit any design pattern.
 [ci]:      https://travis-ci.org/cathydutton/postcss-maze
 
 
-Maze is a flexible and semantic mobile first responsive grid built with PostCSS. Maze is fully customisable and removes the reliance on .last-column classes by instead applying the margin to both sides of each element and adjusting the wrapper width accordingly. 
+Maze is a flexible and semantic mobile first responsive grid built with PostCSS. Maze is fully customisable and removes the reliance on .last-column classes by instead applying the margin to both sides of each element and adjusting the wrapper width accordingly.
 
 
 ## Installation
@@ -45,7 +45,7 @@ This calculates the wrapper width based on the values assigned to the largest an
 Each column is then created as a ratio at a set media query...
 
 ```css
-.four-columns {
+.four-elements {
   col-span: mobile(1,1);
   col-span: phablet(1,2);
   col-span: tablet(1,4);
@@ -53,7 +53,7 @@ Each column is then created as a ratio at a set media query...
 ```
 
 ```css
-.four-columns {
+.four-elements {
   float: left;
   box-sizing: border-box;
   margin-right: 0.5%;
@@ -63,7 +63,7 @@ Each column is then created as a ratio at a set media query...
 
 @media only screen and (min-width:480px) {
 
-  .four-columns {
+  .four-elements {
     width: 49%;
   }
 
@@ -71,7 +71,7 @@ Each column is then created as a ratio at a set media query...
 
 @media only screen and (min-width:768px) {
 
-  .four-columns {
+  .four-elements {
     width: 24%;
   }
 
@@ -79,6 +79,26 @@ Each column is then created as a ratio at a set media query...
 ```
 
 The above element will display one per row at mobile, two per row at landscape and 4 per row at tablet. The Mobile declaration is the default value and therefore is not rendered inside a media query.
+
+### Examples
+
+```css
+.twelve-elements {
+  col-span: mobile(1,1);
+  col-span: phablet(1,2);
+  col-span: tablet(1,4);
+  col-span: desktop(1,6);
+  col-span: wide(1,12);
+}
+```
+
+```css
+.six-elements {
+  col-span: mobile(1,2);
+  col-span: tablet(1,3);
+  col-span: desktop(1,6);
+}
+```
 
 ### Settings
 
