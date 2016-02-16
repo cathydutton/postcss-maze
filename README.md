@@ -115,7 +115,7 @@ gulp.task('css', function () {
     postcssMaze({
       media: {
         mobile:    20 +'em',
-        phablet:   30e +'em',
+        phablet:   30 +'em',
         tablet:    48 +'em',
         desktop:   63.750 +'em',
         wide:      80 +'em'
@@ -133,7 +133,7 @@ gulp.task('css', function () {
     })
   ];
 
-  return gulp.src('dist/input.css')
+  return gulp.src('src/input.css')
     .pipe(postcss(processors))
     .pipe(concat('dist/output.css'))
     .pipe(gulp.dest('.'));
