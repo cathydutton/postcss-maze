@@ -2,6 +2,13 @@
   Theming styles
   ----------------------------------- */
 
+.group {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
 h1,
 h2 {
   color: #999;
@@ -12,11 +19,12 @@ h2 {
   text-transform: uppercase;
 }
 
-.section {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  color: white;
+p {
+  color: #999;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  max-width: 800px;
+  margin: 10px auto;
 }
 
 section div {

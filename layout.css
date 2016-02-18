@@ -14,18 +14,18 @@
 
 .four-columns {
   col-span: mobile(1,1);
-  col-span: landscape(1,2);
+  col-span: phablet(1,2);
   col-span: tablet(1,4);
 }
 
 .three-columns {
   col-span: mobile(1,1);
-  col-span: landscape(1,3);
+  col-span: phablet(1,3);
 }
 
 .six-columns {
   col-span: mobile(1,1);
-  col-span: landscape(1,3);
+  col-span: phablet(1,3);
   col-span: tablet(1,6);
 }
 
@@ -33,38 +33,38 @@
 
 .one-quater {
   col-span: mobile(1,2);
-  col-span: landscape(1,4);
+  col-span: phablet(1,4);
 }
 
 .two-quaters {
   col-span: mobile(1,1);
-  col-span: landscape(2,4);
+  col-span: phablet(2,4);
 }
 
 .one-third {
   col-span: mobile(1,1);
-  col-span: landscape(1,3);
+  col-span: phablet(1,3);
 }
 
 .two-thirds {
   col-span: mobile(1,1);
-  col-span: landscape(2,3);
+  col-span: phablet(2,3);
 }
 
 .one-sixth {
   col-span: mobile(1,1);
-  col-span: landscape(1,6);
+  col-span: phablet(1,6);
 }
 
 .four-sixths {
   col-span: mobile(1,1);
-  col-span: landscape(4,6);
+  col-span: phablet(4,6);
 }
 
 /* MULTI ROW */
 
 .multi-row {
   col-span: mobile(1,1);
-  col-span: landscape(1,2);
+  col-span: phablet(1,2);
   col-span: tablet(1,4);
 }
