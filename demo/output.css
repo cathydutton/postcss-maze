@@ -120,7 +120,7 @@
   transition: all 0.5s ease;
 }
 
-@media only screen and (min-width:30) {
+@media only screen and (min-width:30em) {
 
   .four-columns {
     width: 49%;
@@ -163,7 +163,7 @@
   }
 }
 
-@media only screen and (min-width:48) {
+@media only screen and (min-width:48em) {
 
   .four-columns {
     width: 24%;
@@ -210,34 +210,34 @@ p {
 section div {
   margin-top: 10px;
   margin-bottom: 10px;
-  background: orange;
+  background: #ffa600;
   padding: 15px 10px;
 }
 
 @media screen and (min-width: 30em) {
 
   section div {
-    background: blue;
+    background: #82d2e5;
   }
 }
 
 @media screen and (min-width: 48em) {
 
   section div {
-    background: green;
+    background: #c1d72e;
   }
 }
 
 @media screen and (min-width: 63.750em) {
 
   section div {
-    background: red;
+    background: #ffc0cb;
   }
 }
 
 @media screen and (min-width: 80em) {
 
   section div {
-    background: pink;
+    background: #dfdedf;
   }
 }

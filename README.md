@@ -60,7 +60,7 @@ Each column is then created as a ratio at a set media query...
   width: 99%;
 }
 
-@media only screen and (min-width:480px) {
+@media only screen and (min-width:30em) {
 
   .four-elements {
     width: 49%;
@@ -68,7 +68,7 @@ Each column is then created as a ratio at a set media query...
 
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:48em) {
 
   .four-elements {
     width: 24%;
@@ -110,8 +110,8 @@ var processors = [
 postcssMaze({
 media: {
  mobile:    20,
- phablet:   30 ,
- tablet:    48 ,
+ phablet:   30,
+ tablet:    48,
  desktop:   63.750,
  wide:      80
 },

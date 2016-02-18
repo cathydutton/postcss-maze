@@ -134,7 +134,7 @@ module.exports = postcss.plugin('postcss-maze', function (options) {
                             css.insertBefore(decl.parent,
                               '@media only screen and (min-width:' +
                               mediaValue +
-                              ') { ' +
+                              'em) { ' +
                               selectorName +
                               '{width:' +
                               columnWidth(span, coloumns) +
