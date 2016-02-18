@@ -12,9 +12,6 @@ Maze is a flexible and semantic mobile first responsive grid built with PostCSS.
 
 ## Installation
 
-```js
-npm install postcss-maze
-```
 
 ## Creating a grid
 
@@ -26,7 +23,9 @@ Firstly the wrapper is given a property of grid-container with a value of true.
 }
 ```
 
-This calculates the wrapper width based on the values assigned to the largest and smallest media queries, and adds a clearfix...
+This calculates the wrapper width based on the values assigned to the largest and smallest media queries, and adds a clearfix.
+
+The max width is calculated accounting for the element margins...
 
 ```css
 .wrapper {
@@ -102,17 +101,19 @@ The above element will display one per row at mobile, two per row at landscape a
 
 ### Settings
 
-By default Maze works with 5 media queries and has a margin of 1%. These settings can be overridden with custom config...
+By default Maze works with 5 media queries and has a margin of 1%. These settings can be overridden with custom config.
+
+All media query dimensions should be written in EM's, and margins as a percentage...
 
 ```js
 var processors = [
 postcssMaze({
 media: {
- mobile:    20 +'em',
- phablet:   30 +'em',
- tablet:    48 +'em',
- desktop:   63.750 +'em',
- wide:      80 +'em'
+ mobile:    20,
+ phablet:   30 ,
+ tablet:    48 ,
+ desktop:   63.750,
+ wide:      80
 },
 settings: {
  margin: 10
@@ -134,11 +135,11 @@ gulp.task('css', function () {
   var processors = [
     postcssMaze({
       media: {
-        mobile:    20 +'em',
-        phablet:   30 +'em',
-        tablet:    48 +'em',
-        desktop:   63.750 +'em',
-        wide:      80 +'em'
+        mobile:    20,
+        phablet:   30,
+        tablet:    48,
+        desktop:   63.750,
+        wide:      80
       },
       settings: {
         margin: 10

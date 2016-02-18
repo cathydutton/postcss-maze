@@ -15,17 +15,17 @@ gulp.task('css', function () {
     var concat = require('gulp-concat'),
         postcss = require('gulp-postcss'),
         mqpacker = require('css-mqpacker'),
-        postcssMaze = require('./index.js');
-        //autoprefixer = require('autoprefixer');
+        postcssMaze = require('./index.js'),
+        autoprefixer = require('autoprefixer-core');
 
     var processors = [
         postcssMaze({
             media: {
-              // mobile:    20+'em',
-              // phablet:   30+'em',
-              // tablet:    48+'em',
-              // desktop:   63.750+'em',
-              // wide:      80 +'em'
+              // mobile:    20,
+              // phablet:   30,
+              // tablet:    48,
+              // desktop:   63.750,
+              // wide:      80
             },
             settings: {
                 // margin: 10
@@ -57,15 +57,14 @@ gulp.task('test', function () {
       .pipe(mocha());
 });
 
+gulp.task('default', ['lint', 'test']);
+
+gulp.task('watch', function () {
+    gulp.watch(files, ['css', 'lint']);
+});
 
 gulp.task('deploy', function() {
   var ghPages = require('gulp-gh-pages');
   return gulp.src('./demo/**/*')
     .pipe(ghPages());
-});
-
-gulp.task('default', ['lint', 'test']);
-
-gulp.task('watch', function () {
-    gulp.watch(files, ['css', 'lint']);
 });

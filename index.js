@@ -1,19 +1,16 @@
 // max width - exact value -- rounding
 // Write test - lint test.JS
-// Readme file
-// NPM Install
-
 
 var postcss = require('postcss'),
     _ = require('underscore');
 
 // Default Media Config
 var mediaConfig = {
-    mobile:    20+'em',
-    phablet:   30+'em',
-    tablet:    48+'em',
-    desktop:   63.750+'em',
-    wide:      80+'em'
+    mobile:    20,
+    phablet:   30,
+    tablet:    48,
+    desktop:   63.750,
+    wide:      80
 };
 
 // Default Settings Config
@@ -37,8 +34,8 @@ module.exports = postcss.plugin('postcss-maze', function (options) {
 
     // Set widths - Add to the max width to compensate for margin
     var maxWidth = mediaConfig.wide + mediaConfig.wide / 100 *
-    settingsConfig.margin;
-    var minWidth = mediaConfig.mobile - 20; /* Set min width with scroll bar */
+      settingsConfig.margin;
+    var minWidth = mediaConfig.mobile; /* Set min width with scroll bar */
 
 
     return function (css) {
@@ -60,11 +57,11 @@ module.exports = postcss.plugin('postcss-maze', function (options) {
                     } else {
                         decl.parent.append({
                             prop:  'max-width',
-                            value: maxWidth
+                            value: maxWidth +'em'
                         });
                         decl.parent.append({
                             prop:  'min-width',
-                            value: minWidth
+                            value: 'calc(' + minWidth + 'em - 20px)'
                         });
                         decl.parent.append({
                             prop:  'margin',
