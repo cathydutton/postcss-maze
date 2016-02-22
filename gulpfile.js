@@ -15,8 +15,7 @@ gulp.task('css', function () {
     var concat = require('gulp-concat'),
         postcss = require('gulp-postcss'),
         mqpacker = require('css-mqpacker'),
-        postcssMaze = require('./index.js'),
-        autoprefixer = require('autoprefixer-core');
+        postcssMaze = require('./index.js');
 
     var processors = [
         postcssMaze({
@@ -31,19 +30,13 @@ gulp.task('css', function () {
                 // margin: 10
             }
         }),
-        mqpacker,
-        // autoprefixer({
-        //     browsers: ['> 2%', 'IE >= 9', 'iOS >= 7'],
-        //     cascade:  false,
-        //     map:      true,
-        //     remove:   true
-        // })
+        mqpacker
     ];
 
     return gulp.src([
-          'demo/layout.css',
-          'demo/theme.css'
-        ])
+        'demo/layout.css',
+        'demo/theme.css'
+    ])
         .pipe(postcss(processors))
         .pipe(concat('demo/output.css'))
         .pipe(gulp.dest('.'));
@@ -63,8 +56,8 @@ gulp.task('watch', function () {
     gulp.watch(files, ['css', 'lint']);
 });
 
-gulp.task('deploy', function() {
-  var ghPages = require('gulp-gh-pages');
-  return gulp.src('./demo/**/*')
+gulp.task('deploy', function () {
+    var ghPages = require('gulp-gh-pages');
+    return gulp.src('./demo/**/*')
     .pipe(ghPages());
 });

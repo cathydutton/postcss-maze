@@ -6,11 +6,11 @@ var postcss = require('postcss'),
 
 // Default Media Config
 var mediaConfig = {
-    mobile:    20,
-    phablet:   30,
-    tablet:    48,
-    desktop:   63.750,
-    wide:      80
+    mobile:  20,
+    phablet: 30,
+    tablet:  48,
+    desktop: 63.750,
+    wide:    80
 };
 
 // Default Settings Config
@@ -57,7 +57,7 @@ module.exports = postcss.plugin('postcss-maze', function (options) {
                     } else {
                         decl.parent.append({
                             prop:  'max-width',
-                            value: maxWidth +'em'
+                            value: maxWidth + 'em'
                         });
                         decl.parent.append({
                             prop:  'min-width',

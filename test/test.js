@@ -1,10 +1,9 @@
 var postcss = require('postcss'),
-	grid = require('../'),
-	assert = require('assert'),
-	extend = require('util')._extend;
+    grid = require('../'),
+    assert = require('assert');
 
 var settingsConfig = {
-  margin: 1
+    margin: 1
 };
 
 var test = function (opts, input, output) {
