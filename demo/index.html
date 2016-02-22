@@ -19,43 +19,99 @@
 	</head>
   <body>
 
-  <section>
-    <h1>PostCSS Maze</h1>
-    <p></p>
-  </section>
+    <section class="wrapper">
+      <h1>PostCSS Maze</h1>
+      <p>Maze is a flexible and semantic mobile first responsive grid built with PostCSS. Maze is fully customisable and removes the reliance on .last-column classes by instead applying the margin to both sides of each element and adjusting the wrapper width accordingly.</p>
+    </section>
 
-  <div class="group">
-    <h1>Equal</h1>
-    <p></p>
+
+    <h2>Equal elements</h2>
     <section class="wrapper">
-      <div class="one-column">1</div>
+      <div class="one-element">1 of 1</div>
     </section>
     <section class="wrapper">
-      <div class="four-columns">1/4</div>
-      <div class="four-columns">1/4</div>
-      <div class="four-columns">1/4</div>
-      <div class="four-columns">1/4</div>
+      <div class="two-elements">1 of 2</div>
+      <div class="two-elements">1 of 2</div>
     </section>
     <section class="wrapper">
-      <div class="three-columns">1/3</div>
-      <div class="three-columns">1/3</div>
-      <div class="three-columns">1/3</div>
+      <div class="three-elements">1 of 3</div>
+      <div class="three-elements">1 of 3</div>
+      <div class="three-elements">1 of 3</div>
     </section>
     <section class="wrapper">
-      <div class="six-columns">1/6</div>
-      <div class="six-columns">1/6</div>
-      <div class="six-columns">1/6</div>
-      <div class="six-columns">1/6</div>
-      <div class="six-columns">1/6</div>
-      <div class="six-columns">1/6</div>
+      <div class="four-elements">1 of 4</div>
+      <div class="four-elements">1 of 4</div>
+      <div class="four-elements">1 of 4</div>
+      <div class="four-elements">1 of 4</div>
     </section>
+    <section class="wrapper">
+      <div class="six-elements">1 of 6</div>
+      <div class="six-elements">1 of 6</div>
+      <div class="six-elements">1 of 6</div>
+      <div class="six-elements">1 of 6</div>
+      <div class="six-elements">1 of 6</div>
+      <div class="six-elements">1 of 6</div>
+    </section>
+    <section class="wrapper">
+      <div class="eight-elements">1 of 8</div>
+      <div class="eight-elements">1 of 8</div>
+      <div class="eight-elements">1 of 8</div>
+      <div class="eight-elements">1 of 8</div>
+      <div class="eight-elements">1 of 8</div>
+      <div class="eight-elements">1 of 8</div>
+      <div class="eight-elements">1 of 8</div>
+      <div class="eight-elements">1 of 8</div>
+    </section>
+    <section class="wrapper">
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+      <div class="twelve-elements">1 of 12</div>
+    </section>
+
+    <h2>Multi row</h2>
+    <p>Using a mobile first aproach, multiple rows can be included in the same wrapper</p>
+    <section class="wrapper">
+      <div class="multi-row--eight">1/8</div>
+      <div class="multi-row--eight">1/8</div>
+      <div class="multi-row--eight">1/8</div>
+      <div class="multi-row--eight">1/8</div>
+      <div class="multi-row--eight">1/8</div>
+      <div class="multi-row--eight">1/8</div>
+      <div class="multi-row--eight">1/8</div>
+      <div class="multi-row--eight">1/8</div>
+    </section>
+    <section class="wrapper">
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+      <div class="multi-row--twelve">1/12</div>
+    </section>
+
+    <h2>Non equal elements</h2>
     <section class="wrapper">
       <div class="one-quater">1/4</div>
       <div class="one-quater">1/4</div>
-      <div class="two-quaters">1/2</div>
+      <div class="two-quaters">2/4</div>
     </section>
     <section class="wrapper">
-      <div class="two-quaters">1/2</div>
+      <div class="two-quaters">2/4</div>
       <div class="one-quater">1/4</div>
       <div class="one-quater">1/4</div>
     </section>
@@ -69,21 +125,5 @@
       <div class="four-sixths">4/6</div>
     </section>
   </div>
-
-  <div class="group">
-    <h2>Multi Row</h2>
-    <p></p>
-    <section class="wrapper">
-      <div class="multi-row">1/4</div>
-      <div class="multi-row">1/4</div>
-      <div class="multi-row">1/4</div>
-      <div class="multi-row">1/4</div>
-      <div class="multi-row">1/4</div>
-      <div class="multi-row">1/4</div>
-      <div class="multi-row">1/4</div>
-      <div class="multi-row">1/4</div>
-    </section>
-  </div>
-
-  </body>
+</body>
 </html>
