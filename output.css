@@ -17,7 +17,7 @@
 
 /* EQUAL */
 
-.one-column {
+.one-element {
   float: left;
   box-sizing: border-box;
   margin-right: 0.5%;
@@ -26,7 +26,7 @@
   transition: all 0.5s ease;
 }
 
-.four-columns {
+.two-elements {
   float: left;
   box-sizing: border-box;
   margin-right: 0.5%;
@@ -35,7 +35,7 @@
   transition: all 0.5s ease;
 }
 
-.three-columns {
+.three-elements {
   float: left;
   box-sizing: border-box;
   margin-right: 0.5%;
@@ -44,7 +44,7 @@
   transition: all 0.5s ease;
 }
 
-.six-columns {
+.four-elements {
   float: left;
   box-sizing: border-box;
   margin-right: 0.5%;
@@ -53,7 +53,54 @@
   transition: all 0.5s ease;
 }
 
-/* UN-EQUAL */
+.six-elements {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+  transition: all 0.5s ease;
+}
+
+.eight-elements {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+  transition: all 0.5s ease;
+}
+
+.twelve-elements {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 99%;
+  transition: all 0.5s ease;
+}
+
+/* MULTI ROW */
+
+.multi-row--eight {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 49%;
+  transition: all 0.5s ease;
+}
+
+.multi-row--twelve {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  width: 49%;
+  transition: all 0.5s ease;
+}
+
+/* NON EQUAL */
 
 .one-quater {
   float: left;
@@ -78,7 +125,7 @@
   box-sizing: border-box;
   margin-right: 0.5%;
   margin-left: 0.5%;
-  width: 99%;
+  width: 32.333333333333336%;
   transition: all 0.5s ease;
 }
 
@@ -87,7 +134,7 @@
   box-sizing: border-box;
   margin-right: 0.5%;
   margin-left: 0.5%;
-  width: 99%;
+  width: 65.66666666666667%;
   transition: all 0.5s ease;
 }
 
@@ -96,7 +143,7 @@
   box-sizing: border-box;
   margin-right: 0.5%;
   margin-left: 0.5%;
-  width: 99%;
+  width: 49%;
   transition: all 0.5s ease;
 }
 
@@ -109,29 +156,65 @@
   transition: all 0.5s ease;
 }
 
-/* MULTI ROW */
+@media only screen and (min-width:30em) {
 
-.multi-row {
-  float: left;
-  box-sizing: border-box;
-  margin-right: 0.5%;
-  margin-left: 0.5%;
-  width: 99%;
-  transition: all 0.5s ease;
-}
-
-@media only screen and (min-width:30) {
-
-  .four-columns {
+  .two-elements {
     width: 49%;
   }
 
-  .three-columns {
+  .three-elements {
     width: 32.333333333333336%;
   }
 
-  .six-columns {
+  .four-elements {
+    width: 49%;
+  }
+
+  .six-elements {
     width: 32.333333333333336%;
+  }
+
+  .eight-elements {
+    width: 49%;
+  }
+
+  .twelve-elements {
+    width: 32.333333333333336%;
+  }
+
+  .multi-row--eight {
+    width: 24%;
+  }
+
+  .multi-row--twelve {
+    width: 32.333333333333336%;
+  }
+}
+
+@media only screen and (min-width:48em) {
+
+  .four-elements {
+    width: 24%;
+  }
+
+  .six-elements {
+    width: 15.666666666666666%;
+  }
+
+  .eight-elements {
+    width: 24%;
+  }
+
+  .twelve-elements {
+    width: 15.666666666666666%;
+  }
+
+  .multi-row--eight {
+    width: 15.666666666666666%;
+  }
+
+  .multi-row--twelve {
+    width: 24%;
   }
 
   .one-quater {
@@ -142,14 +225,6 @@
     width: 49%;
   }
 
-  .one-third {
-    width: 32.333333333333336%;
-  }
-
-  .two-thirds {
-    width: 65.66666666666667%;
-  }
-
   .one-sixth {
     width: 15.666666666666666%;
   }
@@ -157,87 +232,88 @@
   .four-sixths {
     width: 65.66666666666667%;
   }
+}
 
-  .multi-row {
-    width: 49%;
+@media only screen and (min-width:63.75em) {
+
+  .eight-elements {
+    width: 11.5%;
+  }
+
+  .twelve-elements {
+    width: 7.333333333333333%;
+  }
+
+  .multi-row--eight {
+    width: 11.5%;
+  }
+
+  .multi-row--twelve {
+    width: 15.666666666666666%;
   }
 }
 
-@media only screen and (min-width:48) {
+@media only screen and (min-width:80em) {
 
-  .four-columns {
-    width: 24%;
-  }
-
-  .six-columns {
-    width: 15.666666666666666%;
-  }
-
-  .multi-row {
-    width: 24%;
+  .multi-row--twelve {
+    width: 7.333333333333333%;
   }
 }
 
 /*
   Theming styles
   ----------------------------------- */
-
-.group {
-  width: 100%;
-  margin: 0 auto;
+body {
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-  color: #fff;
+  color: #999;
+}
+
+.wrapper {
+  margin: 20px auto;
 }
 
 h1,
 h2 {
-  color: #999;
-  font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-size: 2.6em;
-  text-align: center;
   text-transform: uppercase;
 }
 
 p {
-  color: #999;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 200;
-  max-width: 800px;
+  max-width: 990px;
   margin: 10px auto;
+  font-weight: 200;
 }
 
 section div {
   margin-top: 10px;
   margin-bottom: 10px;
-  background: orange;
   padding: 15px 10px;
+  background: #ffa600;
+  color: #fff;
 }
 
 @media screen and (min-width: 30em) {
-
   section div {
-    background: blue;
+    background: #82d2e5;
   }
 }
 
 @media screen and (min-width: 48em) {
-
   section div {
-    background: green;
+    background: #c1d72e;
   }
 }
 
 @media screen and (min-width: 63.750em) {
-
   section div {
-    background: red;
+    background: #ffc0cb;
   }
 }
 
 @media screen and (min-width: 80em) {
-
   section div {
-    background: pink;
+    background: #dfdedf;
   }
 }

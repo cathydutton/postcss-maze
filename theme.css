@@ -1,59 +1,57 @@
 /*
   Theming styles
   ----------------------------------- */
-
-.group {
-  width: 100%;
-  margin: 0 auto;
+body {
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-  color: #fff;
+  color: #999;
+}
+
+.wrapper {
+  margin: 20px auto;
 }
 
 h1,
 h2 {
-  color: #999;
-  font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-size: 2.6em;
-  text-align: center;
   text-transform: uppercase;
 }
 
 p {
-  color: #999;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 200;
-  max-width: 800px;
+  max-width: 990px;
   margin: 10px auto;
+  font-weight: 200;
 }
 
 section div {
   margin-top: 10px;
   margin-bottom: 10px;
-  background: orange;
   padding: 15px 10px;
+  background: #ffa600;
+  color: #fff;
 }
 
 @media screen and (min-width: 30em) {
   section div {
-    background: blue;
+    background: #82d2e5;
   }
 }
 
 @media screen and (min-width: 48em) {
   section div {
-    background: green;
+    background: #c1d72e;
   }
 }
 
 @media screen and (min-width: 63.750em) {
   section div {
-    background: red;
+    background: #ffc0cb;
   }
 }
 
 @media screen and (min-width: 80em) {
   section div {
-    background: pink;
+    background: #dfdedf;
   }
 }

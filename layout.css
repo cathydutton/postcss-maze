@@ -8,63 +8,89 @@
 
 /* EQUAL */
 
-.one-column {
+.one-element {
   col-span: mobile(1,1);
 }
 
-.four-columns {
+.two-elements {
+  col-span: mobile(1,1);
+  col-span: phablet(1,2);
+}
+
+.three-elements {
+  col-span: mobile(1,1);
+  col-span: phablet(1,3);
+}
+
+.four-elements {
   col-span: mobile(1,1);
   col-span: phablet(1,2);
   col-span: tablet(1,4);
 }
 
-.three-columns {
-  col-span: mobile(1,1);
-  col-span: phablet(1,3);
-}
-
-.six-columns {
+.six-elements {
   col-span: mobile(1,1);
   col-span: phablet(1,3);
   col-span: tablet(1,6);
 }
 
-/* UN-EQUAL */
-
-.one-quater {
-  col-span: mobile(1,2);
-  col-span: phablet(1,4);
-}
-
-.two-quaters {
+.eight-elements {
   col-span: mobile(1,1);
-  col-span: phablet(2,4);
+  col-span: phablet(1,2);
+  col-span: tablet(1,4);
+  col-span: desktop(1,8);
 }
 
-.one-third {
+.twelve-elements {
   col-span: mobile(1,1);
   col-span: phablet(1,3);
-}
-
-.two-thirds {
-  col-span: mobile(1,1);
-  col-span: phablet(2,3);
-}
-
-.one-sixth {
-  col-span: mobile(1,1);
-  col-span: phablet(1,6);
-}
-
-.four-sixths {
-  col-span: mobile(1,1);
-  col-span: phablet(4,6);
+  col-span: tablet(1,6);
+  col-span: desktop(1,12);
 }
 
 /* MULTI ROW */
 
-.multi-row {
-  col-span: mobile(1,1);
-  col-span: phablet(1,2);
+.multi-row--eight {
+  col-span: mobile(1,2);
+  col-span: phablet(1,4);
+  col-span: tablet(1,6);
+  col-span: desktop(1,8);
+}
+
+.multi-row--twelve {
+  col-span: mobile(1,2);
+  col-span: phablet(1,3);
   col-span: tablet(1,4);
+  col-span: desktop(1,6);
+  col-span: wide(1,12);
+}
+
+/* NON EQUAL */
+
+.one-quater {
+  col-span: mobile(1,2);
+  col-span: tablet(1,4);
+}
+
+.two-quaters {
+  col-span: mobile(1,1);
+  col-span: tablet(2,4);
+}
+
+.one-third {
+  col-span: mobile(1,3);
+}
+
+.two-thirds {
+  col-span: mobile(2,3);
+}
+
+.one-sixth {
+  col-span: mobile(1,2);
+  col-span: tablet(1,6);
+}
+
+.four-sixths {
+  col-span: mobile(1,1);
+  col-span: tablet(4,6);
 }
