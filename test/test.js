@@ -1,36 +1,16 @@
-var postcss = require('postcss');
-var expect  = require('chai').expect;
+var postcss = require('postcss'),
+	grid = require('../'),
+	assert = require('assert'),
+	extend = require('util')._extend;
 
-var plugin = require('../');
-
-var test = function (input, output, opts, done) {
-    postcss([ plugin(opts) ]).process(input).then(function (result) {
-        expect(result.css).to.eql(output);
-        expect(result.warnings()).to.be.empty;
-        done();
-    }).catch(function (error) {
-        done(error);
-    });
+var settingsConfig = {
+  margin: 1
 };
 
+var test = function (opts, input, output) {
+    assert.equal(postcss(grid(opts)).process(input).css, output);
+};
 
-describe('postcss-maze', function () {
-
-    /* Tests
-
-    it('does something', function (done) {
-        test('a{ }', 'a{ }', { }, done);
-    });*/
-
-    it('adds row styling', function () {
-        test('a:hover, b {}', 'a:hover, b, a:focus {}');
-    });
-
-    it('adds column styling', function () {
-        test('a:hover, b:hover {}', 'a:hover, b:hover, a:focus, b:focus {}');
-    });
-
-    test('.element{grid-column: 1/12;}',
-    '.element{float: left;width: 6.42361%;margin-right: 2.08333%;}');
-
-});
+test(settingsConfig, '.element{col-span: mobile(1,1);}', '.element{float: left;width: 99%;margin-right: 0.5%;margin-left: 0.5%;}');
+test(settingsConfig, '.element{col-span: mobile(1,2);}', '.element{float: left;width: 49%;margin-right: 0.5%;margin-left: 0.5%;}');
+test(settingsConfig, '.element{col-span: mobile(1,3);}', '.element{float: left;width: 32.333333333333336%;margin-right: 0.5%;margin-left: 0.5%;}');
