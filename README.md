@@ -111,7 +111,7 @@ All media query dimensions should be written in EM's, and margins as a percentag
 
 ```js
 var processors = [
-postcssMaze({
+postcssmaze({
 media: {
  mobile:    20,
  phablet:   30,
@@ -133,11 +133,11 @@ gulp.task('css', function () {
   var concat = require('gulp-concat'),
     postcss = require('gulp-postcss'),
     mqpacker = require('css-mqpacker'),
-    postcssMaze = require('./index.js'),
+    postcssmaze = require('postcss-maze'),
     autoprefixer = require('autoprefixer');
 
   var processors = [
-    postcssMaze({
+    postcssmaze({
       media: {
         mobile:    20,
         phablet:   30,
