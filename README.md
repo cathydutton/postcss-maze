@@ -111,7 +111,7 @@ All media query dimensions should be written in EM's, and margins as a percentag
 
 ```js
 var processors = [
-postcssMaze({
+postcssmaze({
 media: {
  mobile:    20,
  phablet:   30,
