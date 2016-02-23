@@ -12,6 +12,10 @@ Maze is a flexible and semantic mobile first responsive grid built with PostCSS.
 
 ## Installation
 
+```js
+npm install postcss-maze
+```
+
 
 ## Creating a grid
 
