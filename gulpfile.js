@@ -15,10 +15,10 @@ gulp.task('css', function () {
     var concat = require('gulp-concat'),
         postcss = require('gulp-postcss'),
         mqpacker = require('css-mqpacker'),
-        postcssMaze = require('./index.js');
+        postcssmaze = require('./index.js');
 
     var processors = [
-        postcssMaze({
+        postcssmaze({
             media: {
               // mobile:    20,
               // phablet:   30,
